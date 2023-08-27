@@ -1,2 +1,1 @@
-# STM32_SDK
-stm32 train
+此工程以keil5为开发环境进行usb FS开发；
