@@ -5,21 +5,21 @@
 #include "stm32f10x.h"
 
 
-/* ¶¨ÒåLEDÁ¬½ÓµÄGPIO¶Ë¿Ú, ÓÃ»§Ö»ÐèÒªÐÞ¸ÄÏÂÃæµÄ´úÂë¼´¿É¸Ä±ä¿ØÖÆµÄLEDÒý½Å */
-// R-ºìÉ«
-#define LED1_GPIO_PORT    	GPIOB			              /* GPIO¶Ë¿Ú */
-#define LED1_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIO¶Ë¿ÚÊ±ÖÓ */
-#define LED1_GPIO_PIN		GPIO_Pin_5			        /* Á¬½Óµ½SCLÊ±ÖÓÏßµÄGPIO */
+/* ï¿½ï¿½ï¿½ï¿½LEDï¿½ï¿½ï¿½Óµï¿½GPIOï¿½Ë¿ï¿½, ï¿½Ã»ï¿½Ö»ï¿½ï¿½Òªï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ë¼´ï¿½É¸Ä±ï¿½ï¿½ï¿½Æµï¿½LEDï¿½ï¿½ï¿½ï¿½ */
+// R-ï¿½ï¿½É«
+#define LED1_GPIO_PORT    	GPIOB			              /* GPIOï¿½Ë¿ï¿½ */
+#define LED1_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIOï¿½Ë¿ï¿½Ê±ï¿½ï¿½ */
+#define LED1_GPIO_PIN		GPIO_Pin_5			        /* ï¿½ï¿½ï¿½Óµï¿½SCLÊ±ï¿½ï¿½ï¿½ßµï¿½GPIO */
 
-// G-ÂÌÉ«
-#define LED2_GPIO_PORT    	GPIOB			              /* GPIO¶Ë¿Ú */
-#define LED2_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIO¶Ë¿ÚÊ±ÖÓ */
-#define LED2_GPIO_PIN		GPIO_Pin_0			        /* Á¬½Óµ½SCLÊ±ÖÓÏßµÄGPIO */
+// G-ï¿½ï¿½É«
+#define LED2_GPIO_PORT    	GPIOB			              /* GPIOï¿½Ë¿ï¿½ */
+#define LED2_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIOï¿½Ë¿ï¿½Ê±ï¿½ï¿½ */
+#define LED2_GPIO_PIN		GPIO_Pin_0			        /* ï¿½ï¿½ï¿½Óµï¿½SCLÊ±ï¿½ï¿½ï¿½ßµï¿½GPIO */
 
-// B-À¶É«
-#define LED3_GPIO_PORT    	GPIOB			              /* GPIO¶Ë¿Ú */
-#define LED3_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIO¶Ë¿ÚÊ±ÖÓ */
-#define LED3_GPIO_PIN		GPIO_Pin_1			        /* Á¬½Óµ½SCLÊ±ÖÓÏßµÄGPIO */
+// B-ï¿½ï¿½É«
+#define LED3_GPIO_PORT    	GPIOB			              /* GPIOï¿½Ë¿ï¿½ */
+#define LED3_GPIO_CLK 	    RCC_APB2Periph_GPIOB		/* GPIOï¿½Ë¿ï¿½Ê±ï¿½ï¿½ */
+#define LED3_GPIO_PIN		GPIO_Pin_1			        /* ï¿½ï¿½ï¿½Óµï¿½SCLÊ±ï¿½ï¿½ï¿½ßµï¿½GPIO */
 
 
 /** the macro definition to trigger the led on or off 
@@ -29,7 +29,7 @@
 #define ON  0
 #define OFF 1
 
-/* Ê¹ÓÃ±ê×¼µÄ¹Ì¼þ¿â¿ØÖÆIO*/
+/* Ê¹ï¿½Ã±ï¿½×¼ï¿½Ä¹Ì¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IO*/
 #define LED1(a)	if (a)	\
 					GPIO_SetBits(LED1_GPIO_PORT,LED1_GPIO_PIN);\
 					else		\
@@ -46,13 +46,13 @@
 					GPIO_ResetBits(LED3_GPIO_PORT,LED3_GPIO_PIN)
 
 
-/* Ö±½Ó²Ù×÷¼Ä´æÆ÷µÄ·½·¨¿ØÖÆIO */
-#define	digitalHi(p,i)		 {p->BSRR=i;}	 //Êä³öÎª¸ßµçÆ½		
-#define digitalLo(p,i)		 {p->BRR=i;}	 //Êä³öµÍµçÆ½
-#define digitalToggle(p,i) {p->ODR ^=i;} //Êä³ö·´×ª×´Ì¬
+/* Ö±ï¿½Ó²ï¿½ï¿½ï¿½ï¿½Ä´ï¿½ï¿½ï¿½ï¿½Ä·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IO */
+#define	digitalHi(p,i)		 {p->BSRR=i;}	 //ï¿½ï¿½ï¿½Îªï¿½ßµï¿½Æ½		
+#define digitalLo(p,i)		 {p->BRR=i;}	 //ï¿½ï¿½ï¿½ï¿½Íµï¿½Æ½
+#define digitalToggle(p,i) {p->ODR ^=i;} //ï¿½ï¿½ï¿½ï¿½ï¿½×ª×´Ì¬
 
 
-/* ¶¨Òå¿ØÖÆIOµÄºê */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½IOï¿½Äºï¿½ */
 #define LED1_TOGGLE		 digitalToggle(LED1_GPIO_PORT,LED1_GPIO_PIN)
 #define LED1_OFF		   digitalHi(LED1_GPIO_PORT,LED1_GPIO_PIN)
 #define LED1_ON			   digitalLo(LED1_GPIO_PORT,LED1_GPIO_PIN)
@@ -65,51 +65,51 @@
 #define LED3_OFF		   digitalHi(LED3_GPIO_PORT,LED3_GPIO_PIN)
 #define LED3_ON			   digitalLo(LED3_GPIO_PORT,LED3_GPIO_PIN)
 
-/* »ù±¾»ìÉ«£¬ºóÃæ¸ß¼¶ÓÃ·¨Ê¹ÓÃPWM¿É»ì³öÈ«²ÊÑÕÉ«,ÇÒÐ§¹û¸üºÃ */
+/* ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½É«ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß¼ï¿½ï¿½Ã·ï¿½Ê¹ï¿½ï¿½PWMï¿½É»ï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½É«,ï¿½ï¿½Ð§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ */
 
-//ºì
+//red light
 #define LED_RED  \
 					LED1_ON;\
 					LED2_OFF\
 					LED3_OFF
 
-//ÂÌ
+//green light
 #define LED_GREEN		\
 					LED1_OFF;\
 					LED2_ON\
 					LED3_OFF
 
-//À¶
+//ï¿½ï¿½
 #define LED_BLUE	\
 					LED1_OFF;\
 					LED2_OFF\
 					LED3_ON
 
 					
-//»Æ(ºì+ÂÌ)					
+//ï¿½ï¿½(ï¿½ï¿½+ï¿½ï¿½)					
 #define LED_YELLOW	\
 					LED1_ON;\
 					LED2_ON\
 					LED3_OFF
-//×Ï(ºì+À¶)
+//ï¿½ï¿½(ï¿½ï¿½+ï¿½ï¿½)
 #define LED_PURPLE	\
 					LED1_ON;\
 					LED2_OFF\
 					LED3_ON
 
-//Çà(ÂÌ+À¶)
+//ï¿½ï¿½(ï¿½ï¿½+ï¿½ï¿½)
 #define LED_CYAN \
 					LED1_OFF;\
 					LED2_ON\
 					LED3_ON
 					
-//°×(ºì+ÂÌ+À¶)
+//ï¿½ï¿½(ï¿½ï¿½+ï¿½ï¿½+ï¿½ï¿½)
 #define LED_WHITE	\
 					LED1_ON;\
 					LED2_ON\
 					LED3_ON
 					
-//ºÚ(È«²¿¹Ø±Õ)
+//ï¿½ï¿½(È«ï¿½ï¿½ï¿½Ø±ï¿½)
 #define LED_RGBOFF	\
 					LED1_OFF;\
 					LED2_OFF\
